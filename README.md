@@ -1,33 +1,34 @@
 # FrontierIQ Skills
 
-Agent skills for working with the [FrontierIQ](https://frontier-iq.vercel.app) AI Workflow API.
+Agent skills for working with the [FrontierIQ](https://frontier-iq.vercel.app) AI Workflow API — live model economics, benchmark data, and cost modelling for agentic and genAI projects.
 
 ## Install
 
 ```bash
 # Install all skills
-npx skills add accenture-dx/frontieriq-skills
+npx skills add eugenesiow/frontieriq-skills
 
 # Install a specific skill
-npx skills add accenture-dx/frontieriq-skills --skill frontieriq-cost-model
+npx skills add eugenesiow/frontieriq-skills --skill frontieriq-cost-model
+npx skills add eugenesiow/frontieriq-skills --skill frontieriq-benchmarks
 ```
 
 ## Skills
 
+| Skill | Description |
+|-------|-------------|
+| [`frontieriq-cost-model`](#frontieriq-cost-model) | Build cost models — API pricing, self-hosted GPU break-even, token budgeting |
+| [`frontieriq-benchmarks`](#frontieriq-benchmarks) | Select models by task type using benchmark data and the Strongest / Cheapest / Fastest lenses |
+
+---
+
 ### `frontieriq-cost-model`
 
-Build cost models for agentic and genAI projects using live model economics
-data from the FrontierIQ AI Workflow API.
+Build cost models for agentic and genAI projects using live model economics data from the FrontierIQ AI Workflow API.
 
-**Covers:**
-- Querying API pricing, self-hosted GPU costs, and throughput data
-- Projecting token budgets across agent loops
-- Break-even analysis (self-hosted vs. managed API)
-- Multi-model pipeline cost summation
-- Agentic I/O ratio profiling
+**Covers:** API pricing · self-hosted GPU costs · break-even analysis · token budget projection · multi-model pipeline costing · agentic I/O ratio profiling
 
-**Requires:** A FrontierIQ workflow API key — generate one on the
-[FrontierIQ API Keys page](https://frontier-iq.vercel.app).
+**Auth required:** Yes — generate a workflow API key on the [FrontierIQ API Keys page](https://frontier-iq.vercel.app).
 
 ---
 
@@ -35,24 +36,28 @@ data from the FrontierIQ AI Workflow API.
 
 Select and compare LLMs by task type using live benchmark data from FrontierIQ.
 
-**Covers:**
-- Full benchmark taxonomy: 11 benchmarks mapped to agentic use cases
-  (reasoning, coding, bug-fixing, research, long-horizon, multi-agent, and more)
-- Three selection lenses: Strongest / Cheapest / Fastest — what each means and
-  when to use it
-- Public endpoints (no auth) for frontier, cost, and speed leaders per benchmark
-- Authenticated endpoints for per-model scorecard data and full context
-- Model selection patterns: task → benchmark mapping, selection matrices,
-  capability + cost decision reports, multi-step pipeline model assignment
+**Covers:** 11-benchmark taxonomy mapped to agentic use cases · Strongest / Cheapest / Fastest selection lenses · public frontier/cost/speed endpoints · per-model scorecard data · model selection matrices and decision reports
+
+**Auth required:** Public endpoints need no auth; scorecard endpoints require a workflow API key.
+
+---
+
+## API key
+
+Both skills call `https://frontier-iq.vercel.app`. Set your key as an environment variable:
+
+```bash
+export FRONTIERIQ_API_KEY=your_key_here
+```
 
 ## Contributing
 
-Skills live under `skills/<skill-name>/SKILL.md`. To add a new skill:
+Skills live in `skills/<skill-name>/SKILL.md`. To contribute:
 
-1. Create a new directory under `skills/`
-2. Add a `SKILL.md` with the standard frontmatter (`name`, `description`)
-3. Open a PR
+1. Fork this repo
+2. Create `skills/<your-skill-name>/SKILL.md` with `name` and `description` frontmatter
+3. Open a pull request
 
 ## License
 
-MIT
+[MIT](LICENSE)
