@@ -29,6 +29,22 @@ data from the FrontierIQ AI Workflow API.
 **Requires:** A FrontierIQ workflow API key — generate one on the
 [FrontierIQ API Keys page](https://frontier-iq.vercel.app).
 
+---
+
+### `frontieriq-benchmarks`
+
+Select and compare LLMs by task type using live benchmark data from FrontierIQ.
+
+**Covers:**
+- Full benchmark taxonomy: 11 benchmarks mapped to agentic use cases
+  (reasoning, coding, bug-fixing, research, long-horizon, multi-agent, and more)
+- Three selection lenses: Strongest / Cheapest / Fastest — what each means and
+  when to use it
+- Public endpoints (no auth) for frontier, cost, and speed leaders per benchmark
+- Authenticated endpoints for per-model scorecard data and full context
+- Model selection patterns: task → benchmark mapping, selection matrices,
+  capability + cost decision reports, multi-step pipeline model assignment
+
 ## Contributing
 
 Skills live under `skills/<skill-name>/SKILL.md`. To add a new skill:
