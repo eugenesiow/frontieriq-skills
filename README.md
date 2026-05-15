@@ -1,6 +1,6 @@
 # FrontierIQ Skills
 
-Agent skills for working with the [FrontierIQ](https://frontier-iq.vercel.app) AI Workflow API — live model economics, benchmark data, and cost modelling for agentic and genAI projects.
+Agent skills for working with the [FrontierIQ](https://frontieriq.airefinery.accenture.com) AI Workflow API — live model economics, benchmark data, and cost modelling for agentic and genAI projects.
 
 ## Install
 
@@ -28,7 +28,7 @@ Build cost models for agentic and genAI projects using live model economics data
 
 **Covers:** API pricing · self-hosted GPU costs · break-even analysis · token budget projection · multi-model pipeline costing · agentic I/O ratio profiling
 
-**Auth required:** Yes — generate a workflow API key on the [FrontierIQ API Keys page](https://frontier-iq.vercel.app).
+**Auth required:** Yes — generate a workflow API key on the [FrontierIQ API Keys page](https://frontieriq.airefinery.accenture.com).
 
 ---
 
@@ -44,7 +44,7 @@ Select and compare LLMs by task type using live benchmark data from FrontierIQ.
 
 ## API key
 
-Both skills call `https://frontier-iq.vercel.app`. Set your key as an environment variable:
+Both skills call `https://frontieriq.airefinery.accenture.com`. Set your key as an environment variable:
 
 ```bash
 export FRONTIERIQ_API_KEY=your_key_here

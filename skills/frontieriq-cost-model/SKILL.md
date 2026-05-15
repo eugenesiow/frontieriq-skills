@@ -14,7 +14,7 @@ description: >-
 Build cost models for agentic/genAI projects using live model economics data
 from the FrontierIQ AI Workflow API.
 
-**Base URL:** `https://frontier-iq.vercel.app`  
+**Base URL:** `https://frontieriq.airefinery.accenture.com`  
 **Auth:** `Authorization: Bearer <FRONTIERIQ_API_KEY>`  
 (Generate a key on the FrontierIQ API Keys page.)
 
@@ -198,22 +198,22 @@ break-even and capacity numbers, benchmark summary, and data freshness.
 ```bash
 # Find open-weight models (self-hostable)
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/models?weightAvailability=open&limit=50"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/models?weightAvailability=open&limit=50"
 
 # Search by name
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/models?q=llama+70b"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/models?q=llama+70b"
 
 # Filter by benchmark (only models benchmarked on SWE-bench)
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/models?benchmark=swe_bench_verified"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/models?benchmark=swe_bench_verified"
 ```
 
 ### Step 2 — Pull full cost context for shortlisted models
 
 ```bash
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/context?model=llama-3.3-70b-instruct"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/context?model=llama-3.3-70b-instruct"
 ```
 
 ### Step 3 — Apply your project's token budget to the numbers
@@ -353,7 +353,7 @@ for step in steps:
 import os
 import httpx
 
-BASE_URL = "https://frontier-iq.vercel.app"
+BASE_URL = "https://frontieriq.airefinery.accenture.com"
 HEADERS  = {"Authorization": f"Bearer {os.environ['FRONTIERIQ_API_KEY']}"}
 
 def list_models(**params) -> dict:

@@ -16,7 +16,7 @@ description: >-
 Query live benchmark data from FrontierIQ to select and compare LLMs for
 specific agentic tasks.
 
-**Base URL:** `https://frontier-iq.vercel.app`
+**Base URL:** `https://frontieriq.airefinery.accenture.com`
 
 The benchmark endpoints come in two tiers:
 - **Public** (`/api/frontier/`, `/api/costs/`, `/api/speeds/`, `/api/home-summary`) — no auth required, return single best-model summaries
@@ -71,7 +71,7 @@ Use **Fastest** when latency drives UX (e.g. interactive agents, streaming respo
 Returns the single highest-scoring model on the given benchmark.
 
 ```bash
-curl "https://frontier-iq.vercel.app/api/frontier/swe_bench_verified"
+curl "https://frontieriq.airefinery.accenture.com/api/frontier/swe_bench_verified"
 ```
 
 ```json
@@ -90,7 +90,7 @@ Returns the model with the best score-to-cost ratio: above the score midpoint
 and below the geometric mean of the cost range.
 
 ```bash
-curl "https://frontier-iq.vercel.app/api/costs/aider_polyglot"
+curl "https://frontieriq.airefinery.accenture.com/api/costs/aider_polyglot"
 ```
 
 ```json
@@ -112,7 +112,7 @@ Returns the model with the lowest total response time for 100 output tokens,
 as measured across managed API providers.
 
 ```bash
-curl "https://frontier-iq.vercel.app/api/speeds/gpqa_diamond"
+curl "https://frontieriq.airefinery.accenture.com/api/speeds/gpqa_diamond"
 ```
 
 ```json
@@ -134,7 +134,7 @@ Returns all three lens leaders across every benchmark in one call. Good for
 building a comparison dashboard or populating a model selection matrix.
 
 ```bash
-curl "https://frontier-iq.vercel.app/api/home-summary"
+curl "https://frontieriq.airefinery.accenture.com/api/home-summary"
 ```
 
 ```json
@@ -178,7 +178,7 @@ Returns only models that have results on the given benchmark. Combine with
 
 ```bash
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/models?benchmark=swe_bench_verified&weightAvailability=open&limit=20"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/models?benchmark=swe_bench_verified&weightAvailability=open&limit=20"
 ```
 
 Response includes compact model records — see the `frontieriq-cost-model` skill
@@ -193,7 +193,7 @@ pricing observations.
 
 ```bash
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/models/llama-3.3-70b-instruct"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/models/llama-3.3-70b-instruct"
 ```
 
 ```json
@@ -221,7 +221,7 @@ response.
 
 ```bash
 curl -H "Authorization: Bearer $FRONTIERIQ_API_KEY" \
-  "https://frontier-iq.vercel.app/api/ai/v1/context?model=llama-3.3-70b-instruct"
+  "https://frontieriq.airefinery.accenture.com/api/ai/v1/context?model=llama-3.3-70b-instruct"
 ```
 
 The `benchmarkSummary` field contains up to 5 scorecards with scores:
@@ -246,7 +246,7 @@ Map the user's task to a benchmark slug, then query the appropriate lens.
 ```python
 import httpx
 
-BASE_URL = "https://frontier-iq.vercel.app"
+BASE_URL = "https://frontieriq.airefinery.accenture.com"
 
 # Task → benchmark mapping
 TASK_BENCHMARKS = {
