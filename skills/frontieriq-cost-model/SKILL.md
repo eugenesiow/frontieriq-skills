@@ -243,11 +243,13 @@ monthly_cost = api_cost_per_million_output * monthly_output_tokens / 1_000_000
 
 ### Step 4 — Self-hosted break-even check
 
+`monthly_output_tokens` is computed in the Step 3 projection snippet above.
+
 ```python
-context = response["costAnalysis"]["adjusted"]
+context = ctx["costAnalysis"]["adjusted"]  # ctx from Step 2 get_context() call
 
 break_even = context["breakEvenMillionOutputTokensPerMonth"]
-projected   = monthly_output_tokens / 1_000_000
+projected   = monthly_output_tokens / 1_000_000  # from Step 3 projection
 
 if break_even and projected >= break_even:
     print(f"Self-hosting is cheaper above {break_even:.0f}M output tokens/month")
@@ -309,7 +311,7 @@ steps = [
 
 total_monthly_cost = 0
 for step in steps:
-    ctx = fetch_context(step["model"])  # GET /api/ai/v1/context
+    ctx = get_context(step["model"])  # GET /api/ai/v1/context
     price = ctx["costAnalysis"]["bestApiOffer"]["blendedPerMillionTokensUsd"]
     monthly_tokens = step["avg_output_tokens"] * step["calls_per_day"] * 30
     total_monthly_cost += price * monthly_tokens / 1_000_000
